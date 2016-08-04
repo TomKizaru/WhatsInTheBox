@@ -1,0 +1,38 @@
+*******************************************************************************************
+Challenges:
+
+class TestCase
+	parameters
+	__str__(self)
+
+class InputFormatter
+	conversion_function
+	info_message
+
+class BaseChallenge
+	query(self, params)
+	test_cases			#list of InputFormatter
+	excpected_input			#list of TestCase
+	level
+
+*******************************************************************************************
+
+Class IO
+	export_message(self, msg)
+	read_input(self)
+
+Class ChallengePresentor
+	show_challenge(self, challenge)	#manage the current challenge; including tests 
+
+class ChallengeManager
+	add_challenge(self, challenge)
+	get_next_challenge(self, user)
+	challenges_by_level		#dict level->list of challenges
+
+class User
+	level
+	last_challenge
+
+class UserLoader - for future versions; save and loads data from disk
+
+*******************************************************************************************
