@@ -27,7 +27,7 @@ Class ChallengePresentor
 class ChallengeManager
 	add_challenge(self, challenge)
 	get_next_challenge(self, user)
-	challenges_by_level		#dict level->list of challenges
+    challenges_by_level		#dict level->list of challenges
 
 class User
 	level
