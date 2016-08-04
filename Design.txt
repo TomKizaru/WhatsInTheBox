@@ -11,8 +11,8 @@ class InputFormatter
 
 class BaseChallenge
 	query(self, params)
-	test_cases			#list of InputFormatter
-	excpected_input			#list of TestCase
+	test_cases			#list of TestCase
+	excpected_input			#list of InputFormatter
 	level
 
 *******************************************************************************************
@@ -27,7 +27,7 @@ Class ChallengePresentor
 class ChallengeManager
 	add_challenge(self, challenge)
 	get_next_challenge(self, user)
-	challenges_by_level		#dict level->list of challenges
+    challenges_by_level		#dict level->list of challenges
 
 class User
 	level
