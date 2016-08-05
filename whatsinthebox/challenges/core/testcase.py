@@ -8,9 +8,9 @@
 """
 
 class TestCase(object):
-    def __init__(self, parameters, formatted_parameter):
+    def __init__(self, parameters, formatted_parameters):
         self.parameters = parameters
-        self.formatted_parameter = formatted_parameter
+        self.formatted_parameters = formatted_parameters
 
     def __str__(self):
-        return self.formatted_parameter
+        return self.formatted_parameters
