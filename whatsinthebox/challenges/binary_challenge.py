@@ -3,7 +3,7 @@ from whatsinthebox.challenges.core.testcase import TestCase
 
 # noinspection PyMethodOverriding
 from whatsinthebox.challenges.formatting_utils import format_positive_int
-from whatsinthebox.challenges.input_formatter import InputFormatter
+from whatsinthebox.challenges.input_formatter import IOFormatter
 
 
 class SortChallenge(BaseChallenge):
@@ -14,9 +14,9 @@ class SortChallenge(BaseChallenge):
         TestCase((8), "8")]
 
     expected_input = [
-        InputFormatter(format_positive_int, "Enter a positive number: ")]
+        IOFormatter(format_positive_int, "Enter a positive number: ")]
 
-    result_formatter = InputFormatter(format_positive_int, "Please enter a positive number: ")
+    result_formatter = IOFormatter(format_positive_int, "Please enter a positive number: ")
 
     @staticmethod
     def query(check_num):
