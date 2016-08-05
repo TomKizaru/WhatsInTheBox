@@ -11,6 +11,14 @@ def format_int(input_string):
     return result
 
 
+def format_positive_int(input_string):
+    result = format_int(input_string)
+    if result >= 0:
+        return result
+    else:
+        raise FormattingException("Couldn't parse as positive int.")
+
+
 def format_float(input_string):
     try:
         result = float(input_string)
