@@ -14,9 +14,9 @@ class SortChallenge(BaseChallenge):
         TestCase(([2, 5, -1, -3]), "2, 5, -1, -3")]
 
     expected_input = [
-        InputFormatter(format_list, "Enter a list.")]
+        InputFormatter(format_list, "Enter a list: ")]
 
-    result_formatter = InputFormatter(format_list, "Please enter a list.")
+    result_formatter = InputFormatter(format_list, "Please enter a list: ")
 
     @staticmethod
     def query(check_list):

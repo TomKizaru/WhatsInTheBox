@@ -14,10 +14,10 @@ class MinChallenge(BaseChallenge):
         TestCase((3, 3), "3, 3")]
 
     expected_input = [
-        InputFormatter(format_int, "Enter an integer."),
-        InputFormatter(format_int, "Enter another integer.")]
+        InputFormatter(format_int, "Enter an integer: "),
+        InputFormatter(format_int, "Enter another integer: ")]
 
-    result_formatter = InputFormatter(format_int, "Please enter an integer.")
+    result_formatter = InputFormatter(format_int, "Please enter an integer: ")
 
     @staticmethod
     def query(first_number, second_number):
