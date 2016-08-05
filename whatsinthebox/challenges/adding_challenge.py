@@ -3,7 +3,7 @@ from whatsinthebox.challenges.core.testcase import TestCase
 
 # noinspection PyMethodOverriding
 from whatsinthebox.challenges.formatting_utils import format_int
-from whatsinthebox.challenges.input_formatter import InputFormatter
+from whatsinthebox.challenges.input_formatter import IOFormatter
 
 
 class AddingChallenge(BaseChallenge):
@@ -14,10 +14,10 @@ class AddingChallenge(BaseChallenge):
         TestCase((0, 4), "0, 4")]
 
     expected_input = [
-        InputFormatter(format_int, "Enter an integer: "),
-        InputFormatter(format_int, "Enter another integer: ")]
+        IOFormatter(format_int, "Enter an integer: "),
+        IOFormatter(format_int, "Enter another integer: ")]
 
-    result_formatter = InputFormatter(format_int, "Please enter an intege: ")
+    result_formatter = IOFormatter(format_int, "Please enter an intege: ")
 
     @staticmethod
     def query(first_number, second_number):

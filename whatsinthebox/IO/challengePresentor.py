@@ -9,17 +9,20 @@ class ChallengePresentor(object):
 
     def show_challenge(self, challenge):
         while True:
-            command = self.get_command()
-            if command == 1:
-                return False
-            elif command == 2:
-                if self.do_test(challenge):
-                    print "You have passed the test!"
-                    return True
+            try:
+                command = self.get_command()
+                if command == 1:
+                    return False
+                elif command == 2:
+                    if self.do_test(challenge):
+                        print "You have passed the test!"
+                        return True
+                    else:
+                        print "You have failed the test."
                 else:
-                    print "You have failed the test."
-            else:
-                self.do_query(challenge)
+                    self.do_query(challenge)
+            except FormattingException as exception:
+                print exception.message
 
 
     def get_command(self):
@@ -38,18 +41,14 @@ class ChallengePresentor(object):
         for case in challenge.test_cases:
             print "input: " + case.formatted_parameters
             answer = raw_input("answer: ")
-            if answer.strip().lower() != str(challenge.query(*case.parameters)):
+            if challenge.result_formatter.conversion_function(answer.strip().lower()) != challenge.query(*case.parameters):
                 return False
         return True
 
     def do_query(self, challenge):
         inputs = []
         for format in challenge.expected_input:
-            try:
-                input = format.conversion_function(raw_input(format.info_message))
-            except FormattingException as exception:
-                print exception.message
-                return
+            input = format.conversion_function(raw_input(format.info_message))
             inputs.append(input)
-        result = challenge.query(*inputs)
+        result = challenge.output_formatter.conversion_function(challenge.query(*inputs))
         print "output: " + str(result)
