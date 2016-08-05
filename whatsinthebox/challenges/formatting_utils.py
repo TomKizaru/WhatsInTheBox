@@ -1,13 +1,15 @@
 class FormattingException(Exception):
     pass
 
+
 def format_int(input_string):
     try:
-        result=int(input_string)
+        result = int(input_string)
     except ValueError:
         raise FormattingException("Couldn't parse as int.")
 
     return result
+
 
 def format_float(input_string):
     try:
@@ -16,6 +18,7 @@ def format_float(input_string):
         raise FormattingException("Couldn't parse as float.")
 
     return result
+
 
 def format_list(input_string):
     try:
