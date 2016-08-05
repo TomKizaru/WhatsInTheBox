@@ -1,7 +1,8 @@
 import uuid
 
+
 class User(object):
-    def __init__(self, level=0, last_challenge=None, uuid=None):
+    def __init__(self, level=0, last_challenge=None, user_id=None):
         self.level = level
         self.last_challenge = last_challenge
-        self.uuid = uuid or uuid.getnode()
+        self.user_id = user_id or uuid.getnode()
