@@ -1,9 +1,9 @@
-from challenges.core.basechallenge import BaseChallenge
-from challenges.core.testcase import TestCase
+from whatsinthebox.challenges.core.basechallenge import BaseChallenge
+from whatsinthebox.challenges.core.testcase import TestCase
 
 # noinspection PyMethodOverriding
-from challenges.formatting_utils import format_int
-from challenges.input_formatter import InputFormatter
+from whatsinthebox.challenges.formatting_utils import format_int
+from whatsinthebox.challenges.input_formatter import InputFormatter
 
 
 class MaxChallenge(BaseChallenge):

@@ -1,9 +1,9 @@
-from challenges.core.basechallenge import BaseChallenge
-from challenges.core.testcase import TestCase
+from whatsinthebox.challenges.core.basechallenge import BaseChallenge
+from whatsinthebox.challenges.core.testcase import TestCase
 
 # noinspection PyMethodOverriding
-from challenges.formatting_utils import format_list
-from challenges.input_formatter import InputFormatter
+from whatsinthebox.challenges.formatting_utils import format_list
+from whatsinthebox.challenges.input_formatter import InputFormatter
 
 
 class SortChallenge(BaseChallenge):
@@ -20,4 +20,4 @@ class SortChallenge(BaseChallenge):
 
     @staticmethod
     def query(check_list):
-        return check_list.sort()
+        return sorted(check_list)
