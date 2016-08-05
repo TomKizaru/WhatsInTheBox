@@ -1,5 +1,8 @@
 import exceptions
 
+from whatsinthebox.challenges.formatting_utils import FormattingException
+
+
 class ChallengePresentor(object):
     def __init__(self):
         pass
@@ -21,7 +24,7 @@ class ChallengePresentor(object):
 
     def get_command(self):
         while True:
-            command = raw_input("Enter 1) to exit\n2) to have the test\n3) to do a query").strip()
+            command = raw_input("Enter 1) to exit\n2) to have the test\n3) to do a query\n").strip()
             if command == '1':
                 return 1
             elif command == '2':
@@ -35,7 +38,7 @@ class ChallengePresentor(object):
         for case in challenge.test_cases:
             print "input: " + case.formatted_parameters
             answer = raw_input("answer: ")
-            if answer.strip().lower() != str(challenge.query(case)):
+            if answer.strip().lower() != str(challenge.query(*case.parameters)):
                 return False
         return True
 
@@ -44,9 +47,9 @@ class ChallengePresentor(object):
         for format in challenge.expected_input:
             try:
                 input = format.conversion_function(raw_input(format.info_message))
-            except ValueError as exception:
+            except FormattingException as exception:
                 print exception.message
                 return
             inputs.append(input)
         result = challenge.query(*inputs)
-        print "output: " + result
+        print "output: " + str(result)
