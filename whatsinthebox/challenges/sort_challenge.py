@@ -20,4 +20,4 @@ class SortChallenge(BaseChallenge):
 
     @staticmethod
     def query(check_list):
-        return check_list.sort()
+        return sorted(check_list)
