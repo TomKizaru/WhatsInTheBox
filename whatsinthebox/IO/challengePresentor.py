@@ -1,5 +1,4 @@
-import exceptions
-
+from whatsinthebox.challenges.core.basechallenge import TestInputException
 from whatsinthebox.challenges.formatting_utils import FormattingException
 
 
@@ -21,7 +20,7 @@ class ChallengePresentor(object):
                         print "You have failed the test."
                 else:
                     self.do_query(challenge)
-            except FormattingException as exception:
+            except (FormattingException,TestInputException) as exception:
                 print exception.message
 
 
@@ -50,5 +49,6 @@ class ChallengePresentor(object):
         for format in challenge.expected_input:
             input = format.conversion_function(raw_input(format.info_message))
             inputs.append(input)
+        challenge.check_input(tuple(inputs))
         result = challenge.output_formatter.conversion_function(challenge.query(*inputs))
         print "output: " + str(result)
